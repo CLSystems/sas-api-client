@@ -1,0 +1,27 @@
+{
+  "name": "clsystems/sas-api-client",
+  "type": "library",
+  "description": "Share-A-Sale API library",
+  "keywords": [
+    "clsystems",
+    "affiliate",
+    "shareasale",
+    "api",
+    "client"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jeroen Guyt - CLSystems",
+      "email": "info@clsystems.nl"
+    }
+  ],
+  "autoload": {
+    "psr-0": { "CLSystems\\ShareASale\\": "src/" }
+  },
+  "require": {
+    "php": ">=7.3",
+    "guzzlehttp/guzzle": "^6.2",
+    "ext-json": "*"
+  }
+}

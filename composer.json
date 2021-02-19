@@ -22,6 +22,10 @@
   "require": {
     "php": ">=7.3",
     "guzzlehttp/guzzle": "^6.2",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "ext-libxml": "*",
+    "ext-simplexml": "*"
   }
 }

@@ -48,6 +48,7 @@ Calling from your code:
 * **dailyActivity**
 * **couponDeals**
 * **edittrail**
+* **getMerchantDescription**
 * **getProducts**
 * **invalidLinks**
 * **ledger**

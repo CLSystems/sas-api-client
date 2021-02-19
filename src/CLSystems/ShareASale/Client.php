@@ -2,6 +2,7 @@
 
 namespace CLSystems\ShareASale;
 
+use DOMDocument;
 use Exception;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\GuzzleException;
@@ -316,7 +317,7 @@ class Client
 		}
 
 		$return = '';
-		$dom = new \DOMDocument();
+		$dom = new DOMDocument();
 		libxml_use_internal_errors(true);
 		$dom->loadHTML(str_replace("\n", '', $result));
 		foreach ($dom->getElementsByTagName('body') as $node)

@@ -97,7 +97,7 @@ class Client
 	public function apitokencount($options = array())
 	{
 		$serviceMethod = 'apitokencount';
-		$xmlRecordTag = 'apitokencountrecord';
+		$xmlRecordTag = 'apitokencount';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
@@ -171,6 +171,13 @@ class Client
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
+	public function merchantInfo($options = array())
+	{
+		$serviceMethod = 'merchantInfo';
+		$xmlRecordTag = 'merchantInforecord';
+		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
+	}
+
 	public function merchantSearch($options = array())
 	{
 		$serviceMethod = 'merchantSearch';
@@ -183,6 +190,38 @@ class Client
 		$serviceMethod = 'merchantSearchProduct';
 		$xmlRecordTag = 'merchantSearchByProductrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
+	}
+
+	/**
+	 * @param int $merchantId
+	 * @throws Exception
+	 * @return string
+	 */
+	public function getMerchantDescription(int $merchantId) : string
+	{
+		$ch = curl_init('https://account.shareasale.com/shareASale_b.cfm?merchantId=' . $merchantId . '&storeId=0');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		$result = curl_exec($ch);
+		$info = curl_getinfo($ch);
+		curl_close($ch);
+
+		if (200 !== $info['http_code'])
+		{
+			throw new Exception('Error fetching merchant description: ' . var_export([$result, $info], true));
+		}
+
+		$return = '';
+		$dom = new \DOMDocument();
+		libxml_use_internal_errors(true);
+		$dom->loadHTML(str_replace("\n", '', $result));
+		foreach($dom->getElementsByTagName('body') as $node)
+		{
+			$return .= $dom->saveHtml($node);
+		}
+
+		return $return;
 	}
 
 	public function ledger($options = array())
@@ -244,22 +283,43 @@ class Client
 	{
 		// parse response body
 		$xml = simplexml_load_string($httpResponse->getBody()->getContents());
-
-		$records = array();
-		if ($xml instanceof SimpleXMLElement) {
-
+		if (false === $xml)
+		{
+			foreach(libxml_get_errors() as $error) {
+				echo "\t", $error->message . PHP_EOL;
+			}
+		}
+		$records = [];
+		if ($xml instanceof SimpleXMLElement)
+		{
 			// convert xml to an array
 			$arr = @json_decode(@json_encode($xml), true);
-
-			if (isset($arr[$xmlRecordTag])) {
+			if (isset($arr[$xmlRecordTag]))
+			{
 				$records = $arr[$xmlRecordTag];
 			}
-
 			// normalize the result array if we have a single result
-			if (is_array($records) && !array_key_exists(0, $records)) {
-				$records = array(
-					$records
-				);
+			if (is_array($arr) && !array_key_exists(0, $records))
+			{
+				$records = [$arr];
+			}
+
+			if (!is_array($records))
+			{
+				$records = [$records];
+			}
+
+			if (1 === count($records))
+			{
+				$records = reset($records);
+			}
+		}
+		else
+		{
+			echo "FALSE ELSE" . PHP_EOL;
+			foreach (libxml_get_errors() as $error)
+			{
+				echo "\t", $error->message . PHP_EOL;
 			}
 		}
 
@@ -293,7 +353,6 @@ class Client
 			$sig = $this->getToken() . ':' . $myTimeStamp . ':' . $actionVerb . ':' . $this->getSecretKey();
 			$sigHash = hash("sha256", $sig);
 
-
 			$httpResponse = $client->request('GET', '/x.cfm', array(
 					'query' => $query,
 					'headers' => array(
@@ -314,6 +373,11 @@ class Client
 			if ($httpResponse->getReasonPhrase() != 'OK') {
 				throw new Exception('Expected response not received. Response details: ' . $httpResponse->getBody()->getContents());
 			}
+
+//			if (false !== stristr($httpResponse->getBody()->getContents(), 'invalid permission'))
+//			{
+//				echo $httpResponse->getBody()->getContents();
+//			}
 
 			return $httpResponse;
 

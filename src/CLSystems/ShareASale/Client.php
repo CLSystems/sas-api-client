@@ -4,7 +4,6 @@ namespace CLSystems\ShareASale;
 
 use Exception;
 use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
@@ -44,148 +43,252 @@ class Client
 	 */
 	protected $secretKey;
 
-	public function activity($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function activity($options = []) : array
 	{
 		$serviceMethod = 'activity';
 		$xmlRecordTag = 'activitydetailsrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function activitySummary($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function activitySummary($options = []) : array
 	{
 		$serviceMethod = 'activitySummary';
 		$xmlRecordTag = 'activitysummaryreportrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function merchantTimespan($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function merchantTimespan($options = []) : array
 	{
 		$serviceMethod = 'merchantTimespan';
 		$xmlRecordTag = 'merchanttimespanrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function dailyActivity($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function dailyActivity($options = []) : array
 	{
 		$serviceMethod = 'dailyActivity';
 		$xmlRecordTag = 'dailyActivity';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function monthlySummary($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function monthlySummary($options = []) : array
 	{
 		$serviceMethod = 'monthlySummary';
 		$xmlRecordTag = 'monthlysummaryrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-
-	public function voidtrail($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function voidtrail($options = []) : array
 	{
 		$serviceMethod = 'voidtrail';
 		$xmlRecordTag = 'voidtrailrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function traffic($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function traffic($options = []) : array
 	{
 		$serviceMethod = 'traffic';
 		$xmlRecordTag = 'trafficreport';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function apitokencount($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function apitokencount($options = []) : array
 	{
 		$serviceMethod = 'apitokencount';
 		$xmlRecordTag = 'apitokencount';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function getProducts($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function getProducts($options = []) : array
 	{
 		$serviceMethod = 'getProducts';
 		$xmlRecordTag = 'getProductsrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function invalidLinks($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function invalidLinks($options = []) : array
 	{
 		$serviceMethod = 'invalidLinks';
 		$xmlRecordTag = 'invalidlinksrecords';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function orderInquiry($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function orderInquiry($options = []) : array
 	{
 		$serviceMethod = 'orderInquiry';
 		$xmlRecordTag = 'orderInquiry';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function merchantDataFeeds($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function merchantDataFeeds($options = []) : array
 	{
 		$serviceMethod = 'merchantDataFeeds';
 		$xmlRecordTag = 'datafeedlistreportrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function couponDeals($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function couponDeals($options = []) : array
 	{
 		$serviceMethod = 'couponDeals';
 		$xmlRecordTag = 'dealcouponlistreportrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function merchantStatus($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function merchantStatus($options = []) : array
 	{
 		$serviceMethod = 'merchantStatus';
 		$xmlRecordTag = 'merchantstatusreportrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function merchantCreative($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function merchantCreative($options = []) : array
 	{
 		$serviceMethod = 'merchantCreative';
 		$xmlRecordTag = 'getlinksreportrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function merchantGiftCard($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function merchantGiftCard($options = []) : array
 	{
 		$serviceMethod = 'merchantGiftCard';
 		$xmlRecordTag = 'merchantGiftCard';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function edittrail($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function edittrail($options = []) : array
 	{
 		$serviceMethod = 'edittrail';
 		$xmlRecordTag = 'merchantGiftCard';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function paymentSummary($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function paymentSummary($options = []) : array
 	{
 		$serviceMethod = 'paymentSummary';
 		$xmlRecordTag = 'paymentSummary';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function merchantInfo($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function merchantInfo($options = []) : array
 	{
 		$serviceMethod = 'merchantInfo';
 		$xmlRecordTag = 'merchantInforecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function merchantSearch($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function merchantSearch($options = []) : array
 	{
 		$serviceMethod = 'merchantSearch';
 		$xmlRecordTag = 'merchantSearchrecord';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function merchantSearchProduct($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function merchantSearchProduct($options = []) : array
 	{
 		$serviceMethod = 'merchantSearchProduct';
 		$xmlRecordTag = 'merchantSearchByProductrecord';
@@ -194,8 +297,8 @@ class Client
 
 	/**
 	 * @param int $merchantId
-	 * @throws Exception
 	 * @return string
+	 * @throws Exception
 	 */
 	public function getMerchantDescription(int $merchantId) : string
 	{
@@ -216,7 +319,7 @@ class Client
 		$dom = new \DOMDocument();
 		libxml_use_internal_errors(true);
 		$dom->loadHTML(str_replace("\n", '', $result));
-		foreach($dom->getElementsByTagName('body') as $node)
+		foreach ($dom->getElementsByTagName('body') as $node)
 		{
 			$return .= $dom->saveHtml($node);
 		}
@@ -224,14 +327,24 @@ class Client
 		return $return;
 	}
 
-	public function ledger($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function ledger($options = []) : array
 	{
 		$serviceMethod = 'ledger';
 		$xmlRecordTag = 'ledger';
 		return $this->callServiceMethod($serviceMethod, $xmlRecordTag, $options);
 	}
 
-	public function balance($options = array())
+	/**
+	 * @param array $options
+	 * @return array|array[]|\array[][]
+	 * @throws GuzzleException
+	 */
+	public function balance($options = []) : array
 	{
 		$serviceMethod = 'balance';
 		$xmlRecordTag = 'balance';
@@ -245,7 +358,7 @@ class Client
 	 * @return array
 	 * @throws GuzzleException
 	 */
-	public function callServiceMethod($serviceMethod, $xmlRecordTag, $options = []): array
+	public function callServiceMethod($serviceMethod, $xmlRecordTag, $options = []) : array
 	{
 		$parameters = array_merge($this->getDefaultArguments(), ['action' => $serviceMethod]);
 		$parameters = array_merge($parameters, $options);
@@ -259,33 +372,40 @@ class Client
 	 * @return array
 	 * @throws Exception
 	 */
-	protected function getDefaultArguments(): array
+	protected function getDefaultArguments() : array
 	{
 		if (
 			!$this->getVersion()
 			|| !$this->getAffiliateId()
 			|| !$this->getToken()
-		) {
+		)
+		{
 			throw new Exception('Required Parameter is not set');
 		}
 
-		return array(
-			'version' => $this->getVersion(),
+		return [
+			'version'     => $this->getVersion(),
 			'affiliateId' => $this->getAffiliateId(),
-			'token' => $this->getToken(),
-			'XMLFormat' => 1,
-			'format' => 'xml'
-		);
+			'token'       => $this->getToken(),
+			'XMLFormat'   => 1,
+			'format'      => 'xml',
+		];
 
 	}
 
-	protected function responseToRecords(Response $httpResponse, $xmlRecordTag)
+	/**
+	 * @param Response $httpResponse
+	 * @param $xmlRecordTag
+	 * @return array|array[]|\array[][]
+	 */
+	protected function responseToRecords(Response $httpResponse, $xmlRecordTag) : array
 	{
 		// parse response body
 		$xml = simplexml_load_string($httpResponse->getBody()->getContents());
 		if (false === $xml)
 		{
-			foreach(libxml_get_errors() as $error) {
+			foreach (libxml_get_errors() as $error)
+			{
 				echo "\t", $error->message . PHP_EOL;
 			}
 		}
@@ -339,12 +459,13 @@ class Client
 			!$this->getToken()
 			|| !$this->getSecretKey()
 			|| !$this->getServiceUrl()
-		) {
+		)
+		{
 			throw new Exception('Required Parameter is not set');
 		}
 
-		try {
-
+		try
+		{
 			$client = new GuzzleClient([
 				'base_uri' => $this->getServiceUrl(),
 			]);
@@ -353,24 +474,27 @@ class Client
 			$sig = $this->getToken() . ':' . $myTimeStamp . ':' . $actionVerb . ':' . $this->getSecretKey();
 			$sigHash = hash("sha256", $sig);
 
-			$httpResponse = $client->request('GET', '/x.cfm', array(
-					'query' => $query,
-					'headers' => array(
-						'x-ShareASale-Date' => $myTimeStamp,
-						'x-ShareASale-Authentication' => $sigHash
-					)
-				)
+			$httpResponse = $client->request('GET', '/x.cfm', [
+					'query'   => $query,
+					'headers' => [
+						'x-ShareASale-Date'           => $myTimeStamp,
+						'x-ShareASale-Authentication' => $sigHash,
+					],
+				]
 			);
 
-			if (!$httpResponse instanceof Response) {
+			if (!$httpResponse instanceof Response)
+			{
 				throw new Exception('Expected instance of GuzzleHttp\Psr7\Response not received');
 			}
 
-			if (!$httpResponse->getBody() instanceof Stream) {
+			if (!$httpResponse->getBody() instanceof Stream)
+			{
 				throw new Exception('Expected instance of GuzzleHttp\Psr7\Stream not received');
 			}
 
-			if ($httpResponse->getReasonPhrase() != 'OK') {
+			if ($httpResponse->getReasonPhrase() != 'OK')
+			{
 				throw new Exception('Expected response not received. Response details: ' . $httpResponse->getBody()->getContents());
 			}
 
@@ -381,7 +505,9 @@ class Client
 
 			return $httpResponse;
 
-		} catch (RequestException $zhce) {
+		}
+		catch (RequestException $zhce)
+		{
 			$message = 'Error in request to Web service: ' . $zhce->getMessage();
 			throw new Exception($message, $zhce->getCode());
 		}
@@ -391,7 +517,7 @@ class Client
 	/**
 	 * @return string
 	 */
-	public function getServiceUrl(): string
+	public function getServiceUrl() : string
 	{
 		return $this->serviceUrl;
 	}
@@ -408,7 +534,7 @@ class Client
 	/**
 	 * @return string
 	 */
-	public function getVersion(): string
+	public function getVersion() : string
 	{
 		return $this->version;
 	}
@@ -425,7 +551,7 @@ class Client
 	/**
 	 * @return int
 	 */
-	public function getAffiliateId(): int
+	public function getAffiliateId() : int
 	{
 		return $this->affiliateId;
 	}
@@ -442,7 +568,7 @@ class Client
 	/**
 	 * @return string
 	 */
-	public function getToken(): string
+	public function getToken() : string
 	{
 		return $this->token;
 	}
@@ -459,7 +585,7 @@ class Client
 	/**
 	 * @return string
 	 */
-	public function getSecretKey(): string
+	public function getSecretKey() : string
 	{
 		return $this->secretKey;
 	}

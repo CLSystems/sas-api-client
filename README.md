@@ -4,6 +4,7 @@ sas-api-client
 A PHP wrapper around the Share-A-Sale API.
 
 This code is Publisher (Affiliate) specific.
+
 If you are looking for Merchant specific code, check out https://github.com/ooglek/shareasale-merchant-api-sdk
 
 Install
